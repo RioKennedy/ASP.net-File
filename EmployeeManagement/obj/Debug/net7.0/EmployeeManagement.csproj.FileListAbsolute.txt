@@ -24,3 +24,4 @@
 /Users/riokennedy/Desktop/C#/EmployeeManagement/obj/Debug/net7.0/EmployeeManagement.pdb
 /Users/riokennedy/Desktop/C#/EmployeeManagement/obj/Debug/net7.0/EmployeeManagement.genruntimeconfig.cache
 /Users/riokennedy/Desktop/C#/EmployeeManagement/obj/Debug/net7.0/ref/EmployeeManagement.dll
+/Users/riokennedy/Desktop/C#/EmployeeManagement/bin/Debug/net7.0/EmployeeManagement.staticwebassets.runtime.json
