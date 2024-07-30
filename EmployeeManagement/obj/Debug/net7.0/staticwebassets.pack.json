@@ -1,8 +1,120 @@
 {
   "Files": [
     {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/default.html",
+      "PackagePath": "staticwebassets/default.html"
+    },
+    {
       "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/foo.html",
       "PackagePath": "staticwebassets/foo.html"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/images/employee.png",
+      "PackagePath": "staticwebassets/images/employee.png"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/images/image1.jpg",
+      "PackagePath": "staticwebassets/images/image1.jpg"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/images/noimage.jpg",
+      "PackagePath": "staticwebassets/images/noimage.jpg"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/js/CustomScript.js",
+      "PackagePath": "staticwebassets/js/CustomScript.js"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/js/bootstrap.js"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/bootstrap/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/jquery/jquery-3.7.1.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/jquery-3.7.1.min.js"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/jquery/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/jquery.js"
     },
     {
       "Id": "obj/Debug/net7.0/staticwebassets/msbuild.EmployeeManagement.Microsoft.AspNetCore.StaticWebAssets.props",

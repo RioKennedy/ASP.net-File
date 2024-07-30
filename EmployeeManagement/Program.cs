@@ -1,26 +1,33 @@
+using EmployeeManagement.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = "server=localhost:3306;user=riok;password=1234;database=EmployeeDB";
+var serverVersion = new MySqlServerVersion(new Version(10,4,28));
+builder.Services.AddDbContextPool<AppDbContext>(options => options
+                .UseMySql(connectionString:connectionString,serverVersion: serverVersion)
+                .LogTo(Console.WriteLine, LogLevel.Information)
+                .EnableSensitiveDataLogging()
+                .EnableDetailedErrors());
+builder.Services.AddMvc(option => option.EnableEndpointRouting = false).AddXmlSerializerFormatters();
+builder.Services.AddScoped<IEmployeeRepository,SQLEmployeeRepository>();
 var app = builder.Build();
 ILogger logger = app.Logger;
-
-
 IConfiguration configuration = app.Configuration;
-app.Use(async (a,next) => 
-{
-    logger.LogInformation("MW1: Incoming Request");
-    await next();
-    logger.LogInformation("MW1: Outgoing Response");
-});
+IWebHostEnvironment environment = app.Environment;
 
-app.Use(async (a,next) => 
-{
-    logger.LogInformation("MW2: Incoming Request");
-    await next();
-    logger.LogInformation("MW2: Outgoing Response");
+
+app.UseStaticFiles();
+// app.UseMvcWithDefaultRoute();
+app.UseMvc(route => {
+    route.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
 });
 
 app.Run(async a => 
 {
-    await a.Response.WriteAsync("MW3: Request handled and response produced");
-    logger.LogInformation("MW3: Request handled and response");
+    await a.Response.WriteAsync(builder.Configuration.GetConnectionString("database") ?? "");
 });
 app.Run();
+
+
+
