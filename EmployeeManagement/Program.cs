@@ -2,7 +2,7 @@ using EmployeeManagement.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = "server=localhost:3306;user=riok;password=1234;database=EmployeeDB";
+var connectionString = "server=localhost;user=root;password=1234;database=EmployeeDB";
 var serverVersion = new MySqlServerVersion(new Version(10,4,28));
 builder.Services.AddDbContextPool<AppDbContext>(options => options
                 .UseMySql(connectionString:connectionString,serverVersion: serverVersion)

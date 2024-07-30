@@ -9,7 +9,7 @@
       "EmployeeManagement/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "7.0.20",
-          "Microsoft.EntityFrameworkCore.Tools": "2.1.14",
+          "Microsoft.EntityFrameworkCore.Tools": "7.0.20",
           "MongoDB.EntityFrameworkCore": "7.0.0-preview.1",
           "Pomelo.EntityFrameworkCore.MySql": "7.0.0"
         },
@@ -105,7 +105,7 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Tools/2.1.14": {
+      "Microsoft.EntityFrameworkCore.Tools/7.0.20": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "7.0.20"
         }
@@ -402,12 +402,12 @@
       "path": "microsoft.entityframeworkcore.relational/7.0.20",
       "hashPath": "microsoft.entityframeworkcore.relational.7.0.20.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Tools/2.1.14": {
+    "Microsoft.EntityFrameworkCore.Tools/7.0.20": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nOmDXgV65mEJ9+dLeO4yRay87tQj4ALBzfBuFph2j+joBo2IZJoj1KgdImu/jKprKLOTbTKnE2wbnRWh/1hX/w==",
-      "path": "microsoft.entityframeworkcore.tools/2.1.14",
-      "hashPath": "microsoft.entityframeworkcore.tools.2.1.14.nupkg.sha512"
+      "sha512": "sha512-tu4A/gRuWxAg0c+7i+SzP5VYDwPUTgcND6ymNxwgcLBXr24tG16sNqUn7/fpMhBTeXIpceHu5DgQ2RJTtwoJag==",
+      "path": "microsoft.entityframeworkcore.tools/7.0.20",
+      "hashPath": "microsoft.entityframeworkcore.tools.7.0.20.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/7.0.0": {
       "type": "package",

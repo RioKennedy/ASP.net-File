@@ -1,3 +1,19 @@
 {
-    "dotnet.defaultSolution": "EmployeeManagement.sln"
+    "dotnet.defaultSolution": "EmployeeManagement.sln",
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "Test",
+            "username": "root",
+            "database": "EmployeeDB",
+            "askForPassword": true
+        }
+    ]
 }
