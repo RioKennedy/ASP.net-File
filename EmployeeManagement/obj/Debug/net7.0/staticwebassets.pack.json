@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets/foo.html"
     },
     {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/images/1400fe16-924b-48c9-b719-9425c7d9e475_IMG20230120193029.jpg",
+      "PackagePath": "staticwebassets/images/1400fe16-924b-48c9-b719-9425c7d9e475_IMG20230120193029.jpg"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/images/21b97bc4-43ee-4c44-8519-683a696fde8f_noimage.jpg",
+      "PackagePath": "staticwebassets/images/21b97bc4-43ee-4c44-8519-683a696fde8f_noimage.jpg"
+    },
+    {
       "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/images/employee.png",
       "PackagePath": "staticwebassets/images/employee.png"
     },

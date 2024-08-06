@@ -12,9 +12,12 @@ namespace EmployeeManagement.Controllers
     public class HomeController : Controller
     {
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly IWebHostEnvironment hostingEnvironment;
 
-        public HomeController(IEmployeeRepository employeeRepository)
+        public HomeController(IEmployeeRepository employeeRepository,
+                                IWebHostEnvironment hostingEnvironment)
         {
+            this.hostingEnvironment = hostingEnvironment;
             _employeeRepository = employeeRepository;
         }
         public ViewResult Index()
@@ -35,10 +38,25 @@ namespace EmployeeManagement.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Employee employee){
+        public IActionResult Create(EmployeeCreateViewModel model){
             if(ModelState.IsValid)
             {
-                Employee newEmployee = _employeeRepository.Add(employee);
+                string uniqueFileName = null!;
+                if(model.Photos != null){
+                    string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath,"images");
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Photos.FileName;
+                    string filePath = Path.Combine(uploadsFolder,uniqueFileName);
+                    model.Photos.CopyTo(new FileStream(filePath, FileMode.Create));
+                }
+                Employee newEmployee = new Employee
+                {
+                    Name = model.Name,
+                    Email = model.Email,
+                    Department = model.Department,
+                    PhotoPath = uniqueFileName,
+                };
+                _employeeRepository.Add(newEmployee);
+                // Employee newEmployee = _employeeRepository.Add(employee);
                 return RedirectToAction(actionName : "Details", new {id = newEmployee.Id});
             }
             return View();
