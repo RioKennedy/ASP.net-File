@@ -16,6 +16,15 @@ ILogger logger = app.Logger;
 IConfiguration configuration = app.Configuration;
 IWebHostEnvironment environment = app.Environment;
 
+if (environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
+{
+    app.UseStatusCodePagesWithReExecute("/Error/{0}");
+}
+
 
 app.UseStaticFiles();
 // app.UseMvcWithDefaultRoute();
@@ -23,10 +32,10 @@ app.UseMvc(route => {
     route.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
 });
 
-app.Run(async a => 
-{
-    await a.Response.WriteAsync(builder.Configuration.GetConnectionString("database") ?? "");
-});
+// app.Run(async a => 
+// {
+//     await a.Response.WriteAsync(builder.Configuration.GetConnectionString("database") ?? "");
+// });
 app.Run();
 
 
