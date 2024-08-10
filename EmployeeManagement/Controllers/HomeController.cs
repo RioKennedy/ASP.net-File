@@ -27,6 +27,7 @@ namespace EmployeeManagement.Controllers
         }
         public ViewResult Details(int? id)
         {
+            throw new Exception("Error in Details View");
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel(){
                 Employee = _employeeRepository.GetEmployee(id??1),
                 PageTitle = "Employee Details"
