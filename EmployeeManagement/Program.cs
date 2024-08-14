@@ -1,4 +1,5 @@
 using EmployeeManagement.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using NLog.Web;
 
@@ -10,6 +11,8 @@ builder.Services.AddDbContextPool<AppDbContext>(options => options
                 .LogTo(Console.WriteLine, LogLevel.Information)
                 .EnableSensitiveDataLogging()
                 .EnableDetailedErrors());
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 builder.Services.AddMvc(option => option.EnableEndpointRouting = false).AddXmlSerializerFormatters();
 builder.Services.AddScoped<IEmployeeRepository,SQLEmployeeRepository>();
 // builder.Logging.ClearProviders();
@@ -18,6 +21,7 @@ var app = builder.Build();
 ILogger logger = app.Logger;
 IConfiguration configuration = app.Configuration;
 IWebHostEnvironment environment = app.Environment;
+
 
 if (environment.IsDevelopment())
 {
@@ -32,6 +36,7 @@ else
 
 app.UseStaticFiles();
 // app.UseMvcWithDefaultRoute();
+app.UseAuthentication();
 app.UseMvc(route => {
     route.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
 });
