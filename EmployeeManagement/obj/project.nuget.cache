@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lq+6EFCvSH8=",
+  "dgSpecHash": "z0AJK8BYn6w=",
   "success": true,
   "projectFilePath": "/Users/riokennedy/Desktop/C#/EmployeeManagement/EmployeeManagement.csproj",
   "expectedPackageFiles": [
@@ -33,6 +33,9 @@
     "/Users/riokennedy/.nuget/packages/mongodb.libmongocrypt/1.8.0/mongodb.libmongocrypt.1.8.0.nupkg.sha512",
     "/Users/riokennedy/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
     "/Users/riokennedy/.nuget/packages/mysqlconnector/2.2.5/mysqlconnector.2.2.5.nupkg.sha512",
+    "/Users/riokennedy/.nuget/packages/nlog/5.3.2/nlog.5.3.2.nupkg.sha512",
+    "/Users/riokennedy/.nuget/packages/nlog.extensions.logging/5.3.11/nlog.extensions.logging.5.3.11.nupkg.sha512",
+    "/Users/riokennedy/.nuget/packages/nlog.web.aspnetcore/5.3.11/nlog.web.aspnetcore.5.3.11.nupkg.sha512",
     "/Users/riokennedy/.nuget/packages/pomelo.entityframeworkcore.mysql/7.0.0/pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
     "/Users/riokennedy/.nuget/packages/sharpcompress/0.30.1/sharpcompress.0.30.1.nupkg.sha512",
     "/Users/riokennedy/.nuget/packages/snappier/1.0.0/snappier.1.0.0.nupkg.sha512",

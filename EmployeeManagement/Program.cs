@@ -1,5 +1,6 @@
 using EmployeeManagement.Models;
 using Microsoft.EntityFrameworkCore;
+using NLog.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = "server=localhost;user=root;password=1234;database=EmployeeDB";
@@ -11,6 +12,8 @@ builder.Services.AddDbContextPool<AppDbContext>(options => options
                 .EnableDetailedErrors());
 builder.Services.AddMvc(option => option.EnableEndpointRouting = false).AddXmlSerializerFormatters();
 builder.Services.AddScoped<IEmployeeRepository,SQLEmployeeRepository>();
+// builder.Logging.ClearProviders();
+builder.WebHost.UseNLog();
 var app = builder.Build();
 ILogger logger = app.Logger;
 IConfiguration configuration = app.Configuration;

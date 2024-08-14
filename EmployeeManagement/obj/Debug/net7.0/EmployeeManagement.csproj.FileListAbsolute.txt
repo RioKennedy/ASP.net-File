@@ -52,3 +52,7 @@
 /Users/riokennedy/Desktop/C#/EmployeeManagement/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
 /Users/riokennedy/Desktop/C#/EmployeeManagement/bin/Debug/net7.0/Mono.TextTemplating.dll
 /Users/riokennedy/Desktop/C#/EmployeeManagement/bin/Debug/net7.0/System.CodeDom.dll
+/Users/riokennedy/Desktop/C#/EmployeeManagement/bin/Debug/net7.0/nlog.config
+/Users/riokennedy/Desktop/C#/EmployeeManagement/bin/Debug/net7.0/NLog.dll
+/Users/riokennedy/Desktop/C#/EmployeeManagement/bin/Debug/net7.0/NLog.Extensions.Logging.dll
+/Users/riokennedy/Desktop/C#/EmployeeManagement/bin/Debug/net7.0/NLog.Web.AspNetCore.dll

@@ -11,6 +11,7 @@
           "Microsoft.EntityFrameworkCore.Design": "7.0.20",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.20",
           "MongoDB.EntityFrameworkCore": "7.0.0-preview.1",
+          "NLog.Web.AspNetCore": "5.3.11",
           "Pomelo.EntityFrameworkCore.MySql": "7.0.0"
         },
         "runtime": {
@@ -268,6 +269,38 @@
           "lib/net7.0/MySqlConnector.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.2.5.0"
+          }
+        }
+      },
+      "NLog/5.3.2": {
+        "runtime": {
+          "lib/netstandard2.0/NLog.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.3.2.2526"
+          }
+        }
+      },
+      "NLog.Extensions.Logging/5.3.11": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Logging": "7.0.0",
+          "NLog": "5.3.2"
+        },
+        "runtime": {
+          "lib/net6.0/NLog.Extensions.Logging.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.3.11.526"
+          }
+        }
+      },
+      "NLog.Web.AspNetCore/5.3.11": {
+        "dependencies": {
+          "NLog.Extensions.Logging": "5.3.11"
+        },
+        "runtime": {
+          "lib/net6.0/NLog.Web.AspNetCore.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.3.11.1082"
           }
         }
       },
@@ -541,6 +574,27 @@
       "sha512": "sha512-6sinY78RvryhHwpup3awdjYO7d5hhWahb5p/1VDODJhSxJggV/sBbYuKK5IQF9TuzXABiddqUbmRfM884tqA3Q==",
       "path": "mysqlconnector/2.2.5",
       "hashPath": "mysqlconnector.2.2.5.nupkg.sha512"
+    },
+    "NLog/5.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cQRQZuDMjSyMe9EQBnI9v55YAMMz8GAfFd6fFJ6tc/kXnG7Hze8p1I8MgvWSBG6E36wA8vSxRrlm8uSIG+SENg==",
+      "path": "nlog/5.3.2",
+      "hashPath": "nlog.5.3.2.nupkg.sha512"
+    },
+    "NLog.Extensions.Logging/5.3.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-C3Rg6jmOkM7fNBX9jAoVlYzOwsrxdQzl9sYDK1EpRc7RCdjgs8FC9ivJCSsCu/m4l0w83xiTNz7Y1CzmD3BwZg==",
+      "path": "nlog.extensions.logging/5.3.11",
+      "hashPath": "nlog.extensions.logging.5.3.11.nupkg.sha512"
+    },
+    "NLog.Web.AspNetCore/5.3.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yGVMYeeMh1v/DZELN8XMEZYg27/w7O0ypcwaD1+cHLf4yI8zZOM0xS57a8gCBV4QCXegN15Upld+9YzS5M1VvA==",
+      "path": "nlog.web.aspnetcore/5.3.11",
+      "hashPath": "nlog.web.aspnetcore.5.3.11.nupkg.sha512"
     },
     "Pomelo.EntityFrameworkCore.MySql/7.0.0": {
       "type": "package",
