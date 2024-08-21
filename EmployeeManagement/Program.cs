@@ -12,9 +12,17 @@ builder.Services.AddDbContextPool<AppDbContext>(options => options
                 .EnableSensitiveDataLogging()
                 .EnableDetailedErrors());
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(
+    options =>
+{
+    options.Password.RequiredLength = 10;
+    options.Password.RequiredUniqueChars = 3;
+    
+}
+).AddEntityFrameworkStores<AppDbContext>();
 builder.Services.AddMvc(option => option.EnableEndpointRouting = false).AddXmlSerializerFormatters();
 builder.Services.AddScoped<IEmployeeRepository,SQLEmployeeRepository>();
+
 // builder.Logging.ClearProviders();
 builder.WebHost.UseNLog();
 var app = builder.Build();
