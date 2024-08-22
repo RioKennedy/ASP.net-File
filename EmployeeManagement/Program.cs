@@ -1,5 +1,7 @@
 using EmployeeManagement.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using NLog.Web;
 
@@ -20,7 +22,12 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(
     
 }
 ).AddEntityFrameworkStores<AppDbContext>();
-builder.Services.AddMvc(option => option.EnableEndpointRouting = false).AddXmlSerializerFormatters();
+builder.Services.AddMvc(option => 
+{
+    option.EnableEndpointRouting = false;
+    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    option.Filters.Add(new AuthorizeFilter(policy));
+}).AddXmlSerializerFormatters();
 builder.Services.AddScoped<IEmployeeRepository,SQLEmployeeRepository>();
 
 // builder.Logging.ClearProviders();
