@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using EmployeeManagement.Models;
 using EmployeeManagement.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR.Protocol;
 
 namespace EmployeeManagement.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IEmployeeRepository _employeeRepository;
@@ -23,11 +25,14 @@ namespace EmployeeManagement.Controllers
             this.hostingEnvironment = hostingEnvironment;
             _employeeRepository = employeeRepository;
         }
+        [AllowAnonymous]
         public ViewResult Index()
         {
             var model = _employeeRepository.GetAllEmployee();
             return View(model);
         }
+        
+        [AllowAnonymous]
         public ViewResult Details(int? id)
         {
             logger.LogCritical("Ciritcal Log");
