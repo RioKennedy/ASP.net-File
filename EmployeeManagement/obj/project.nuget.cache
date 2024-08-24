@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "FfWwqcDe3Ek=",
+  "dgSpecHash": "X8rlzIRSVJ4=",
   "success": true,
   "projectFilePath": "/Users/riokennedy/Desktop/C#/EmployeeManagement/EmployeeManagement.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,8 @@
     "/Users/riokennedy/.nuget/packages/awssdk.securitytoken/3.7.100.14/awssdk.securitytoken.3.7.100.14.nupkg.sha512",
     "/Users/riokennedy/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
     "/Users/riokennedy/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/Users/riokennedy/.nuget/packages/jquery/1.4.4/jquery.1.4.4.nupkg.sha512",
+    "/Users/riokennedy/.nuget/packages/jquery.validation/1.21.0/jquery.validation.1.21.0.nupkg.sha512",
     "/Users/riokennedy/.nuget/packages/microsoft.aspnetcore.cryptography.internal/7.0.20/microsoft.aspnetcore.cryptography.internal.7.0.20.nupkg.sha512",
     "/Users/riokennedy/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/7.0.20/microsoft.aspnetcore.cryptography.keyderivation.7.0.20.nupkg.sha512",
     "/Users/riokennedy/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/7.0.20/microsoft.aspnetcore.identity.entityframeworkcore.7.0.20.nupkg.sha512",

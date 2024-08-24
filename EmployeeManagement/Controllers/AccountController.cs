@@ -36,14 +36,21 @@ namespace EmployeeManagement.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login (LoginViewModel model)
+        public async Task<IActionResult> Login (LoginViewModel model, string returnUrl)
         {
             if(ModelState.IsValid)
             {
                 var result  = await signInManager.PasswordSignInAsync(userName:model.Email!, password : model.Password!, isPersistent:model.RememberMe,lockoutOnFailure : false);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    if(!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }  
                 }
                 ModelState.AddModelError("","Invalid Login Attempt");
             }

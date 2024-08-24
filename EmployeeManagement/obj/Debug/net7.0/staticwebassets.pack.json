@@ -125,6 +125,22 @@
       "PackagePath": "staticwebassets/lib/bootstrap/js/bootstrap.min.js.map"
     },
     {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/jquery-validate/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validate/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/jquery-validate/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validate/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/jquery-validation-unobtrusive/jquery.validation.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validation.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/jquery-validation-unobtrusive/jquery.validation.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validation.unobtrusive.min.js"
+    },
+    {
       "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/lib/jquery/jquery-3.7.1.min.js",
       "PackagePath": "staticwebassets/lib/jquery/jquery-3.7.1.min.js"
     },
