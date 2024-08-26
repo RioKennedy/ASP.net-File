@@ -14,7 +14,7 @@ builder.Services.AddDbContextPool<AppDbContext>(options => options
                 .EnableSensitiveDataLogging()
                 .EnableDetailedErrors());
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
     options =>
 {
     options.Password.RequiredLength = 10;
