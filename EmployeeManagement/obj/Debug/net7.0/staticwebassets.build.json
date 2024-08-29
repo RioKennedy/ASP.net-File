@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oo02pCfwl5e+075c8aZJ3iLczbF80lNPnfFBkCngQNw=",
+  "Hash": "TSKUyLF/roTZU4ntl+2+9CQVweR47BdFxYG4WIDXjOM=",
   "Source": "EmployeeManagement",
   "BasePath": "_content/EmployeeManagement",
   "Mode": "Default",
@@ -186,6 +186,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/image1.jpg"
+    },
+    {
+      "Identity": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/images/noaccess.png",
+      "SourceId": "EmployeeManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/",
+      "BasePath": "_content/EmployeeManagement",
+      "RelativePath": "images/noaccess.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/noaccess.png"
     },
     {
       "Identity": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/images/noimage.jpg",

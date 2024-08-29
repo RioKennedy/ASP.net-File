@@ -36,6 +36,12 @@
                     <li class="nav-item">
                         <a asp-action="create" asp-controller="home" class="nav-link">Create</a>
                     </li>
+                    @if(signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a asp-action="ListRole" asp-controller="Administration" class="nav-link">Manage Role</a>
+                            </li>
+                        }
                     
                 </ul>
                 <ul class="navbar-nav ml-auto">
@@ -58,6 +64,7 @@
                         <li class="nav-item">
                             <a asp-action="login" asp-controller="account" class="nav-link">Login</a>
                         </li>
+                        
                     }
                 </ul>
             </div>

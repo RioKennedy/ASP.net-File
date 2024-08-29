@@ -37,7 +37,7 @@ namespace EmployeeManagement.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login (LoginViewModel model, string returnUrl)
+        public async Task<IActionResult> Login (LoginViewModel model, string returnUrl = "")
         {
             if(ModelState.IsValid)
             {
@@ -104,6 +104,13 @@ namespace EmployeeManagement.Controllers
                     ModelState.AddModelError("",error.Description);
                 }
             }
+            return View();
+        }
+    
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
             return View();
         }
     }

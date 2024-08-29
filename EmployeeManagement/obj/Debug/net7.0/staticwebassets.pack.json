@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets/images/image1.jpg"
     },
     {
+      "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/images/noaccess.png",
+      "PackagePath": "staticwebassets/images/noaccess.png"
+    },
+    {
       "Id": "/Users/riokennedy/Desktop/C#/EmployeeManagement/wwwroot/images/noimage.jpg",
       "PackagePath": "staticwebassets/images/noimage.jpg"
     },
