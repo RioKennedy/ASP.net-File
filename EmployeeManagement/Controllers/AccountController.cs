@@ -41,7 +41,8 @@ namespace EmployeeManagement.Controllers
         {
             if(ModelState.IsValid)
             {
-                var result  = await signInManager.PasswordSignInAsync(userName:model.Email!, password : model.Password!, isPersistent:model.RememberMe,lockoutOnFailure : false);
+                var user = await userManager.FindByEmailAsync(model.Email!);
+                var result  = await signInManager.PasswordSignInAsync(user:user!, password : model.Password!, isPersistent:model.RememberMe,lockoutOnFailure : false);
                 if (result.Succeeded)
                 {
                     if(!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
@@ -96,6 +97,10 @@ namespace EmployeeManagement.Controllers
                 var result  = await userManager.CreateAsync(user, password : model.Password!);
                 if (result.Succeeded)
                 {
+                    if(signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
+                        return RedirectToAction("ListUsers","Administration");
+                    }
                     await signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
