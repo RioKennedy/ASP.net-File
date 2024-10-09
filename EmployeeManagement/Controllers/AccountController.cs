@@ -25,51 +25,60 @@ namespace EmployeeManagement.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction(actionName:"index", controllerName:"home");
+            return RedirectToAction(actionName: "index", controllerName: "home");
         }
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Login ()
+        public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login (LoginViewModel model, string returnUrl = "")
+        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = "")
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var user = await userManager.FindByEmailAsync(model.Email!);
-                var result  = await signInManager.PasswordSignInAsync(user:user!, password : model.Password!, isPersistent:model.RememberMe,lockoutOnFailure : false);
-                if (result.Succeeded)
+                if (user == null)
                 {
-                    if(!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
-                    {
-                        return Redirect(returnUrl);
-                    }
-                    else
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }  
+                    ModelState.AddModelError("asd", "The Email you entered isn't connected to an user.");
+                    return View();
                 }
-                ModelState.AddModelError("","Invalid Login Attempt");
+                else
+                {
+                    var result = await signInManager.PasswordSignInAsync(user: user!, password: model.Password!, isPersistent: model.RememberMe, lockoutOnFailure: false);
+                    if (result.Succeeded)
+                    {
+                        if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                        {
+                            return Redirect(returnUrl);
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
+                    }
+                    ModelState.AddModelError("", "Invalid Login Attempt");
+                }
+
             }
             return View();
         }
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Register ()
+        public IActionResult Register()
         {
             return View();
         }
 
 
-        [AcceptVerbs("Get","Post")]
+        [AcceptVerbs("Get", "Post")]
         [AllowAnonymous]
-        public async Task<IActionResult> IsEmailInUse (string email)
+        public async Task<IActionResult> IsEmailInUse(string email)
         {
             var user = await userManager.FindByEmailAsync(email);
             if (user == null)
@@ -84,9 +93,9 @@ namespace EmployeeManagement.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Register (RegisterViewModel model)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var user = new ApplicationUser
                 {
@@ -94,24 +103,24 @@ namespace EmployeeManagement.Controllers
                     Email = model.Email,
                     City = model.City,
                 };
-                var result  = await userManager.CreateAsync(user, password : model.Password!);
+                var result = await userManager.CreateAsync(user, password: model.Password!);
                 if (result.Succeeded)
                 {
-                    if(signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                     {
-                        return RedirectToAction("ListUsers","Administration");
+                        return RedirectToAction("ListUsers", "Administration");
                     }
                     await signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
-                foreach(var error in result.Errors)
+                foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError("",error.Description);
+                    ModelState.AddModelError("", error.Description);
                 }
             }
             return View();
         }
-    
+
         [HttpGet]
         [AllowAnonymous]
         public IActionResult AccessDenied()

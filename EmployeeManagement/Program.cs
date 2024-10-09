@@ -28,6 +28,10 @@ builder.Services.AddMvc(option =>
     var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
     option.Filters.Add(new AuthorizeFilter(policy));
 }).AddXmlSerializerFormatters();
+
+builder.Services.AddAuthorization(
+    options => options.AddPolicy("DeleteRolePolicy", policy => policy.RequireClaim("Delete Role"))
+    );
 builder.Services.AddScoped<IEmployeeRepository,SQLEmployeeRepository>();
 
 // builder.Logging.ClearProviders();
