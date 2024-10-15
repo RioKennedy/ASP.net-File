@@ -1,3 +1,4 @@
+using EmployeeManagement.Controllers;
 using EmployeeManagement.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -7,9 +8,9 @@ using NLog.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = "server=localhost;user=root;password=1234;database=EmployeeDB";
-var serverVersion = new MySqlServerVersion(new Version(10,4,28));
+var serverVersion = new MySqlServerVersion(new Version(10, 4, 28));
 builder.Services.AddDbContextPool<AppDbContext>(options => options
-                .UseMySql(connectionString:connectionString,serverVersion: serverVersion)
+                .UseMySql(connectionString: connectionString, serverVersion: serverVersion)
                 .LogTo(Console.WriteLine, LogLevel.Information)
                 .EnableSensitiveDataLogging()
                 .EnableDetailedErrors());
@@ -19,20 +20,28 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
 {
     options.Password.RequiredLength = 10;
     options.Password.RequiredUniqueChars = 3;
-    
+
 }
 ).AddEntityFrameworkStores<AppDbContext>();
-builder.Services.AddMvc(option => 
+builder.Services.AddMvc(option =>
 {
     option.EnableEndpointRouting = false;
     var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
     option.Filters.Add(new AuthorizeFilter(policy));
 }).AddXmlSerializerFormatters();
 
+
+builder.Services.ConfigureApplicationCookie(configure => configure.AccessDeniedPath = new PathString("/Administration/AccessDenied"));
+
 builder.Services.AddAuthorization(
-    options => options.AddPolicy("DeleteRolePolicy", policy => policy.RequireClaim("Delete Role"))
+    options => {
+        options.AddPolicy("DeleteRolePolicy", policy => policy.RequireClaim("Delete Role"));
+        options.AddPolicy("EditRolePolicy", policy => policy.RequireClaim("Edit Role"));
+        options.AddPolicy("AdminRolePolicy", policy => policy.RequireRole("Admin"));
+    }
+
     );
-builder.Services.AddScoped<IEmployeeRepository,SQLEmployeeRepository>();
+builder.Services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
 
 // builder.Logging.ClearProviders();
 builder.WebHost.UseNLog();
@@ -56,7 +65,8 @@ else
 app.UseStaticFiles();
 // app.UseMvcWithDefaultRoute();
 app.UseAuthentication();
-app.UseMvc(route => {
+app.UseMvc(route =>
+{
     route.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
 });
 

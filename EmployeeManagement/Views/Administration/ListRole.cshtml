@@ -1,5 +1,9 @@
 @model IQueryable<IdentityRole>
 
+@using Microsoft.AspNetCore.Authorization
+
+@inject IAuthorizationService authorizationService
+
 @{
     ViewBag.Title = "List Role";
 }
@@ -24,10 +28,15 @@
             </div>
             <div class="card-footer">
                 <form asp-action="DeleteRole" asp-route-id="@role.Id" method="post">
-                    <a asp-action="EditRole" asp-controller="Administration" asp-route-id="@role.Id" class="btn btn-primary">Edit</a>
+                    @if((await authorizationService.AuthorizeAsync(User,"EditRolePolicy")).Succeeded)
+                    {
+                        <a asp-action="EditRole" asp-controller="Administration" asp-route-id="@role.Id" class="btn btn-primary">Edit</a>
+                    }
                     
                     
-                     <span id="confirmDeleteSpan_@role.Id" style="display: none;">
+                    @if((await authorizationService.AuthorizeAsync(User,"DeleteRolePolicy")).Succeeded)
+                    {
+                    <span id="confirmDeleteSpan_@role.Id" style="display: none;">
                         <span>Are you sure you want to delete?</span>
                         <button type="submit" class="btn btn-danger">Yes</button>
                         <a href="#" class="btn btn-primary" onclick="ConfirmDelete('@role.Id', false)">No</a>
@@ -37,6 +46,8 @@
                     <span id="deleteSpan_@role.Id">
                         <a href="#" class="btn btn-danger" onclick="ConfirmDelete('@role.Id', true)">Delete</a>
                     </span>
+                    }
+                     
 
 
                 </form>
