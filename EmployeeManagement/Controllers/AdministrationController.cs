@@ -211,7 +211,7 @@ namespace EmployeeManagement.Controllers
         }
 
         [HttpGet]
-        
+
         public async Task<IActionResult> EditUser(string id)
         {
             var user = await userManager.FindByIdAsync(id);
@@ -231,7 +231,7 @@ namespace EmployeeManagement.Controllers
                 UserName = user.UserName,
                 City = user.City,
                 Roles = userRoles,
-                Claims = userClaims.Select(c => c.Value).ToList()
+                Claims = userClaims.Select(c => c.Type + ":" + c.Value).ToList()
             };
 
             return View(model);
@@ -418,7 +418,7 @@ namespace EmployeeManagement.Controllers
                 {
                     ClaimType = claim.Type,
                 };
-                if (existingUserClaims.Any(c => c.Type == claim.Type))
+                if (existingUserClaims.Any(c => c.Type == claim.Type && c.Value == "true"))
                 {
                     userClaim.IsSelected = true;
                 }
@@ -443,16 +443,31 @@ namespace EmployeeManagement.Controllers
                 return View("NotFound");
             }
             var existingUserClaims = await userManager.GetClaimsAsync(user);
+
             for (int i = 0; i < model.Claims.Count; i++)
             {
                 IdentityResult result = null!;
-                if (model.Claims[i].IsSelected && !existingUserClaims.Any(x => x.Type == model.Claims[i].ClaimType))
-                {
-                    result = await userManager.AddClaimAsync(user, new Claim(model.Claims[i].ClaimType!, model.Claims[i].ClaimType!));
-                }
-                else if (!model.Claims[i].IsSelected && existingUserClaims.Any(x => x.Type == model.Claims[i].ClaimType))
+                if (model.Claims[i].IsSelected && existingUserClaims.Any(x => x.Type == model.Claims[i].ClaimType && x.Value == "false"))
                 {
                     result = await userManager.RemoveClaimAsync(user, new Claim(model.Claims[i].ClaimType!, model.Claims[i].ClaimType!));
+                    result = await userManager.RemoveClaimAsync(user, new Claim(model.Claims[i].ClaimType!, "false"));
+                    result = await userManager.AddClaimAsync(user, new Claim(model.Claims[i].ClaimType!, "true"));
+                }
+                else if (model.Claims[i].IsSelected && !existingUserClaims.Any(x => x.Type == model.Claims[i].ClaimType))
+                {
+                    result = await userManager.RemoveClaimAsync(user, new Claim(model.Claims[i].ClaimType!, model.Claims[i].ClaimType!));
+                    result = await userManager.AddClaimAsync(user, new Claim(model.Claims[i].ClaimType!, "true"));
+                }
+                else if (!model.Claims[i].IsSelected && existingUserClaims.Any(x => x.Type == model.Claims[i].ClaimType && x.Value == "true"))
+                {
+                    result = await userManager.RemoveClaimAsync(user, new Claim(model.Claims[i].ClaimType!, model.Claims[i].ClaimType!));
+                    result = await userManager.RemoveClaimAsync(user, new Claim(model.Claims[i].ClaimType!, "true"));
+                    result = await userManager.AddClaimAsync(user, new Claim(model.Claims[i].ClaimType!, "false"));
+                }
+                else if (!model.Claims[i].IsSelected && !existingUserClaims.Any(x => x.Type == model.Claims[i].ClaimType))
+                {
+                    result = await userManager.RemoveClaimAsync(user, new Claim(model.Claims[i].ClaimType!, model.Claims[i].ClaimType!));
+                    result = await userManager.AddClaimAsync(user, new Claim(model.Claims[i].ClaimType!, "false"));
                 }
                 else
                 {
@@ -475,13 +490,13 @@ namespace EmployeeManagement.Controllers
             }
             return RedirectToAction("EditUser", new { Id = model.UserId });
         }
-    
+
         [HttpGet]
         [AllowAnonymous]
         public IActionResult AccessDenied()
         {
             return View();
         }
-    
+
     }
 }
